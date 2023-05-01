@@ -1,13 +1,16 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import NavBar from '../shared/NavBar/NavBar';
+import Footer from '../shared/Footer/Footer';
+// import { Footer } from 'flowbite-react';
 
 const Main = () => {
     return (
         <div>
             <NavBar />
-            <h3>This is main page</h3>
+            
             <Outlet />
+            <Footer />
         </div>
     );
 };
