@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from '../pages/Main/Main';
 import Home from '../pages/pages/Home/Home';
 import Blog from '../pages/pages/Blog/Blog';
+import Chef from '../pages/pages/Chef/Chef';
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,11 @@ const router = createBrowserRouter([
             {
                 path: "/blog",
                 element: <Blog />
+            },
+            {
+                path: "/chefs/:chef",
+                element: <Chef />,
+                loader: ({params}) => fetch(`http://localhost:5000/recipes/${params.chef}`)
             }
         ]
     }

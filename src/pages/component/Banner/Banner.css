@@ -20,14 +20,12 @@
 }
 
 .chef-1{
-    background: url(https://img.freepik.com/free-photo/portrait-smiling-chef-uniform_329181-675.jpg)no-repeat center center/cover;
-    border-radius: 700px 600px 700px 800px;
+    background: url(/public/images/chef1.png)no-repeat center center/cover;
+    
 }
 .chef-2{
-    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTEDzEE9we3A_i1SwdKcm_UOF_W36ulc-S_jiJevF_l__Uo1D8FbtPEH9ngIkEaYFhrZc&usqp=CAU)no-repeat center center/cover;
-    border-radius: 500px 100px 300px 500px;
+    background: url(/public//images/chef2.png)no-repeat center center/cover;
 }
 .chef-3{
-    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmAv_Q8IMuE5xdX4nW2CvCev--C96CMAJAw8ah1RIFNe7eZVxgA8n3rLRjHoI3qX_JMVk&usqp=CAU)no-repeat center center/cover;
-    border-radius: 800px 800px 700px 700px;
+    background: url(/public/images/chef3.png)no-repeat center center/cover;
 }

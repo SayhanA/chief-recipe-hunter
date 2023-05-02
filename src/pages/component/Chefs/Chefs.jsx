@@ -6,7 +6,7 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 
 const Chefs = ({ chef }) => {
-    const { _id, name, image, known_for, experience, likes, birth_year, recipes, nationality, ratings } = chef;
+    const { _id, name, image, known_for, experience, likes, birth_year, recipes, nationality, ratings, dish } = chef;
 
     return (
         <div className="card rounded-lg bg-base-100 shadow-xl">
@@ -19,6 +19,7 @@ const Chefs = ({ chef }) => {
                 <div>
                     <p className='font-bold '>Years of experience: {experience} years</p>
                     <p className='font-bold '>Total recipes: {recipes} years</p>
+                    <p className='font-bold '>Speciality: {dish} </p>
                 </div>
                 <div className='font-bold flex gap-2'>
                     <p>Ratings:</p>
@@ -32,7 +33,7 @@ const Chefs = ({ chef }) => {
                             <span className='font-bold text-lg text-black'>{likes}</span>
                         </div>
 
-                        <Link className="btn btn-warning rounded-sm normal-case flex gap-3 px-7">View Recipes <FaLongArrowAltRight className='text-xl' /> </Link>
+                        <Link to={`/chefs/${name}`} className="btn btn-warning rounded-sm normal-case flex gap-3 px-7">View Recipes <FaLongArrowAltRight className='text-xl' /> </Link>
                     </div>
                 </div>
             </div>
