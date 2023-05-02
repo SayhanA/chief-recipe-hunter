@@ -10,7 +10,7 @@ const Chef = () => {
     const [chefData, setChefData] = useState({});
     const loader = useLoaderData();
     const { chef } = useParams();
-    // console.log(chefData)
+    // console.log(chef)
 
     useEffect(() => {
         fetch(`http://localhost:5000/chef/${chef}`)

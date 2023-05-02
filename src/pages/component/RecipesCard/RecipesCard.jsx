@@ -1,14 +1,17 @@
 import { Rating } from '@smastrom/react-rating';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaBookmark, FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa';
 import { AiTwotoneLike } from "react-icons/ai";
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import { addToDb } from '../../../../fakedb';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const RecipesCard = ({ recipes }) => {
     const [disable, setDisable] = useState(false);
     const [recipe, setRecipe] = useState({})
+
+    const { likedRecipes } = useContext(AuthContext);
     // console.log(recipes)
 
     const { strMealThumb, area, strMeal, strInstructions, idMeal, ratings, strArea, } = recipes;
@@ -16,7 +19,7 @@ const RecipesCard = ({ recipes }) => {
     const handleLike = (props) => {
         toast("Your item is bookmarked");
         setDisable(true);
-        console.log(props)
+        likedRecipes(props)
         addToDb(props)
     }
     return (
