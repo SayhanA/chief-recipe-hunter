@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Banner from '../../component/Banner/Banner';
 import { useLoaderData } from 'react-router-dom';
 import Chefs from '../../component/Chefs/Chefs';
+import Review from '../../component/Review/Review';
 
 const Home = () => {
     const [more, setMore] = useState(false);
@@ -30,6 +31,9 @@ const Home = () => {
                     more ? <button onClick={() => setMore(!more)} className='btn btn-warning rounded-sm normal-case px-10 text-lg block mx-auto my-10'>Famous Chefs</button> : <button onClick={() => setMore(!more)} className='btn btn-warning rounded-sm normal-case px-10 text-lg block mx-auto my-10'>See All Chefs</button>
                 }
             </div>
+
+            {/* Clients Review */}
+            <Review />
         </div>
     );
 };
