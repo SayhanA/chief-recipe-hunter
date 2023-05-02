@@ -1,0 +1,16 @@
+.container1{
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://www.theknot.com/tk-media/images/ff401ab6-8c9b-40d7-938f-5a2396fba155) no-repeat fixed center/cover;
+}
+.container2{
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(https://images.pexels.com/photos/7180858/pexels-photo-7180858.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat fixed center/cover;
+}
+.container3{
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.285), rgba(0, 0, 0, 0.318)),url(https://www.tourmyindia.com/blog//wp-content/uploads/2019/03/National-Street-Food-Festival.jpg) no-repeat fixed center/cover;
+}
+.container4{
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.285), rgba(0, 0, 0, 0.318)),url(https://media.istockphoto.com/id/909208170/photo/friends-toasting-with-wine-and-beer-at-rustic-dinner-party.jpg?s=170667a&w=0&k=20&c=pGF3Y2-7BrXFNKRvcps9SF4eVNYoVATFxt4QlsQFhvY=) no-repeat fixed center/cover;
+}
+.event{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
