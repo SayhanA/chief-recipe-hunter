@@ -10,7 +10,7 @@ import { RatingAdvanced } from "flowbite-react/lib/esm/components/Rating/RatingA
 /* Install pure-react-carousel using -> npm i pure-react-carousel */
 
 export default function Index({ loader }) {
-    console.log(loader)
+    // console.log(loader)
 
     return (
         <div className="container mx-auto">

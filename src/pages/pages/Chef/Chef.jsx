@@ -4,25 +4,26 @@ import ReactDOM from 'react-dom';
 
 import ReactStarsRating from 'react-awesome-stars-rating';
 import Index from '../../component/CardCarsal/CardCarosal';
+import RecipesCard from '../../component/RecipesCard/RecipesCard';
 
 const Chef = () => {
-    const [ chefData, setChefData] = useState({});
+    const [chefData, setChefData] = useState({});
     const loader = useLoaderData();
-    const {chef} = useParams();
-    console.log(chefData)
+    const { chef } = useParams();
+    // console.log(chefData)
 
     useEffect(() => {
         fetch(`http://localhost:5000/chef/${chef}`)
-        .then(res => res.json())
-        .then(data => {
-            if(data){
-                console.log(data)
-                setChefData(data)
-            }
-        })
-    },[])
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    // console.log(data)
+                    setChefData(data)
+                }
+            })
+    }, [])
 
-    
+
     return (
         <div>
             <div className='h-[760px] bg-[url("/styleimg/cat-han-W_5Eakb1598-unsplash.jpg")] bg-no-repeat bg-cover' >
@@ -47,6 +48,15 @@ const Chef = () => {
             </div>
 
             <Index loader={loader} />
+
+            <h3 className='text-center text-4xl font-mono my-10'>My Recipes</h3>
+
+            <div className=' mx-32 grid lg:grid-cols-3 gap-5'>
+                {
+                    loader.map(recipes => <RecipesCard recipes={recipes} key={recipes.idMeal}></RecipesCard>)
+                }
+            </div>
+
         </div>
     );
 };

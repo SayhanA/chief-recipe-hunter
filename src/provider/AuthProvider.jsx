@@ -7,9 +7,13 @@ const AuthProvider = ({children}) => {
     
     const user = { name: "khalid"}
 
+    const likedRecipes = (props) => {
+        console.log(props)
+    }
 
     const info = {
         user,
+        likedRecipes,
     }
     
     return (
