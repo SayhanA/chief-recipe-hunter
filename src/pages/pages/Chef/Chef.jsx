@@ -1,11 +1,27 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+
+import ReactStarsRating from 'react-awesome-stars-rating';
+import Index from '../../component/CardCarsal/CardCarosal';
 
 const Chef = () => {
+    const [ chefData, setChefData] = useState({});
     const loader = useLoaderData();
     const {chef} = useParams();
-    console.log(chef)
-    console.log(loader)
+    console.log(chefData)
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/chef/${chef}`)
+        .then(res => res.json())
+        .then(data => {
+            if(data){
+                console.log(data)
+                setChefData(data)
+            }
+        })
+    },[])
+
     
     return (
         <div>
@@ -24,10 +40,13 @@ const Chef = () => {
                         <img className='absolute bottom-20 right-0 w-[200px]' src="/public/styleimg/nuts.png" alt="" />
                         <img className='absolute -left-[400px] top-[30%]' src="/public/styleimg/welcome.png" alt="" />
                         <p className='border-b-2 pb-5 border-yellow-300 absolute -left-[300px] top-[60%] text-white font-semi-bold text-4xl font-mono'>{chef}</p>
-                        <p className=' absolute -left-[300px] bottom-[20%] text-white text-lg w-[500px] font-mono'>Hi, This is {chef}.I am working for 25years on this profession and crated 200<sup>+</sup> recipes...</p>
+                        <p className=' absolute -left-[300px] bottom-[20%] text-white text-lg w-[500px] font-mono'>Hi, This is {chef}.I am working for {chefData.experience}years on this profession and crated {chefData.recipes}<sup>+</sup> recipes and i have speciality in ({chefData.dish}) dishes...</p>
+                        {/* <p className='absolute bottom-0 -rotate-90 '><ReactStarsRating value={chefData.ratings} /></p> */}
                     </div>
                 </div>
             </div>
+
+            <Index loader={loader} />
         </div>
     );
 };

@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaHandHoldingHeart, FaLongArrowAltRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Rating } from '@smastrom/react-rating'
 
 import '@smastrom/react-rating/style.css'
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const Chefs = ({ chef }) => {
+    const { user, handleChef } = useContext(AuthContext);
+    
     const { _id, name, image, known_for, experience, likes, birth_year, recipes, nationality, ratings, dish } = chef;
 
     return (
