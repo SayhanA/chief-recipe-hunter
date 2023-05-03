@@ -7,6 +7,7 @@ import Index from '../../component/CardCarsal/CardCarosal';
 import RecipesCard from '../../component/RecipesCard/RecipesCard';
 
 const Chef = () => {
+    const [show, setShow] = useState(false);
     const [chefData, setChefData] = useState({});
     const loader = useLoaderData();
     const { chef } = useParams();
@@ -51,11 +52,19 @@ const Chef = () => {
 
             <h3 className='text-center text-4xl font-mono my-10'>My Recipes</h3>
 
-            <div className=' mx-32 grid lg:grid-cols-3 gap-5'>
-                {
-                    loader.map(recipes => <RecipesCard recipes={recipes} key={recipes.idMeal}></RecipesCard>)
-                }
-            </div>
+            {
+                show ? <div className=' mx-32 grid lg:grid-cols-3 gap-5'>
+                    {
+                        loader.map(recipes => <RecipesCard recipes={recipes} key={recipes.idMeal}></RecipesCard>)
+                    }
+                </div> :
+                    <div className=' mx-32 grid lg:grid-cols-3 gap-5'>
+                        {
+                            loader.slice(0, 12).map(recipes => <RecipesCard recipes={recipes} key={recipes.idMeal}></RecipesCard>)
+                        }
+                    </div>
+            }
+            <button onClick={() => setShow(!show)} className='btn btn-warning rounded-sm mx-auto block px-10 my-10'>{show ? "Show Less" : "Show More"}</button>
 
         </div>
     );
