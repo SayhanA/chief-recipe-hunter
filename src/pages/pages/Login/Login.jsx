@@ -15,9 +15,8 @@ const Login = () => {
 
     const { singIn, user, handleGoogleSignIn, handleGitHubSignIn } = useContext(AuthContext);
     // console.log(singIn)
-    // const location = useLocation();
-    // console.log(location)
-    // const from = location.state?.from?.pathname || '/'
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
 
     const handleSubmit = (e) => {
@@ -32,7 +31,7 @@ const Login = () => {
         singIn(email, password)
             .then(result => {
                 const user = result.user;
-                // navigate(from)
+                navigate(from)
                 if (user) {
                     setError("Congratulation !! ");
                     form.reset();
@@ -81,7 +80,7 @@ const Login = () => {
             const token = credential.accessToken;
             const user = result.user;
             console.log(user)
-            // navigate(from)
+            navigate(from)
         })
         .catch(error => {
             console.log(error)
@@ -94,7 +93,7 @@ const Login = () => {
             const token = credential.accessToken;
             const user = result.user;
             console.log(user)
-            // navigate(from)
+            navigate(from)
         })
         .catch(error => {
             console.log(error)

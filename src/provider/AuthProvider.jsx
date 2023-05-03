@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInAnonymously, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInAnonymously, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null);
@@ -7,10 +7,13 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
-const AuthProvider = ({children}) => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [resId, setResId] = useState(null);
-    
+    const [userName, setUserName] = useState('');
+    const [userPhoto, setUerPhoto] = useState('');
+    const [loading, setLoading] = useState(true);
+
     const likedRecipes = (props) => {
         setResId(props)
     }
@@ -20,32 +23,56 @@ const AuthProvider = ({children}) => {
     const signUp = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
-    
+
     const singIn = (email, password) => {
+        setLoading(false);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     const handleSignOut = () => {
+        setLoading(false);
         signOut(auth);
     }
 
+    // Profile updated!
+
+    const updateUser = (name, photo) => {
+        console.log("clicked", name)
+        console.log("clicked photo", photo)
+        setUserName(name);
+        setUerPhoto(photo)
+    }
+
+    updateProfile(auth.currentUser, {
+        displayName: userName,
+        // photoURL: 'https://unsplash.com/photos/rDEOVtE7vOs'
+    }).then((result) => {
+        
+    }).catch((error) => {
+
+    });
+
+
     // Google SignIn
     const handleGoogleSignIn = () => {
+        setLoading(false);
         return signInWithPopup(auth, googleProvider);
     }
 
     // GitHub SignIn
     const handleGitHubSignIn = () => {
+        setLoading(false);
         return signInWithPopup(auth, githubProvider)
     }
-    
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log(currentUser);
+            setLoading(false);
         })
         return () => unsubscribe();
-    },[])
+    }, [])
 
     const info = {
         user,
@@ -53,12 +80,14 @@ const AuthProvider = ({children}) => {
         likedRecipes,
         signUp,
         singIn,
+        loading,
         handleSignOut,
         handleGoogleSignIn,
         handleGitHubSignIn,
+        updateUser,
 
     }
-    
+
     return (
         <AuthContext.Provider value={info}>
             {children}

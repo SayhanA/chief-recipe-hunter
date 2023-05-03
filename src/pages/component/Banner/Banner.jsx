@@ -18,13 +18,13 @@ const Banner = () => {
                     <Link className='btn btn-warning normal-case px-10 rounded-sm text-lg font-bold mt-10'>Visit us <FaLongArrowAltRight className='text-xl ml-3' /> </Link>
                 </div>
                 <div className=' w-[50%] relative'>
-                    <div className='chef-1 bg-white w-[250px] h-[500px] absolute z-50 right-[50%] bottom-0'>
+                    <div className='chef-1 bg-white w-[250px] h-[500px] absolute z-30 right-[50%] bottom-0'>
 
                     </div>
-                    <div className='chef-2 bg-white w-[250px] h-[500px] absolute bottom-0 right-40'>
+                    <div className='chef-2 bg-white w-[250px] h-[500px] absolute bottom-0 right-40 z-0'>
 
                     </div>
-                    <div className='chef-3 bg-white w-[250px] h-[450px] absolute right-0 bottom-0 z-40 '>
+                    <div className='chef-3 bg-white w-[250px] h-[450px] absolute right-0 bottom-0 z-20'>
 
                     </div>
                     

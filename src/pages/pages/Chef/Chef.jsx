@@ -14,7 +14,7 @@ const Chef = () => {
     // console.log(chef)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/chef/${chef}`)
+        fetch(`https://b7a10-chef-recipe-hunter-server-side-sayhan-a-sayhana.vercel.app/chef/${chef}`)
             .then(res => res.json())
             .then(data => {
                 if (data) {

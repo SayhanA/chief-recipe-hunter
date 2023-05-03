@@ -14,26 +14,29 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-    const { signUp, handleGoogleSignIn, handleGitHubSignIn } = useContext(AuthContext);
+    const { signUp, handleGoogleSignIn, handleGitHubSignIn, updateUser } = useContext(AuthContext);
 
     const handleSubmit = event => {
         setError('')
         event.preventDefault();
         const form = event.target;
-        const firstName = form.firstName.value;
-        const lastName = form.lastName.value;
+        const name = form.name.value;
+        const photo = form.photo.value;
         const email = form.email.value;
         // const password = form.password.value;
         // const confirmPassword = form.confirmPassword.value;
-        console.log(firstName, lastName, email, password, confirmPassword)
+        console.log(name, photo, email, password, confirmPassword)
         if (password !== confirmPassword) {
             alert("You password and confirm password are not same");
             return;
         }
+        updateUser(name, photo)
+        
         // signUp user
         signUp(email, password)
         .then(result => {
             const user = result.user;
+            
             console.log(user)
             if(user){
                 alert("you are successfully login")
@@ -139,11 +142,11 @@ const Register = () => {
                     <input className="nameField border-2 border-gray-300 border-t-0 border-l-0 border-r-0 w-full placeholder-black font-semibold" name='firstName' id="firstName" type="text" placeholder='First Name' />
                 </div> */}
                 <div className="relative z-0 w-full mb-6 group mt-7">
-                    <input type="text" name="firstName" id="name" className="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <input type="text" name="name" id="name" className="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                     <label htmlFor="name" className="ml-3  peer-focus:font-medium absolute font-semibold  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
                 </div>
                 <div className="relative z-0 w-full mb-6 mt-7 group text-md">
-                    <input type="text" name="lastName" id="photo" className="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <input type="text" name="photo" id="photo" className="block py-2.5 px-0 w-full bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                     <label htmlFor="photo" className="ml-3  peer-focus:font-medium absolute font-semibold  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">User Photo</label>
                 </div>
                 <div className="relative z-0 w-full mb-6 mt-7 group text-md">

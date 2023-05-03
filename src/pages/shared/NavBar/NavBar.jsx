@@ -11,7 +11,7 @@ const NavBar = () => {
     const [item, setItem] = useState([]);
     const [isTrue, setIsTrue] = useState(false);
     const { resId, user, handleSignOut } = useContext(AuthContext);
-    console.log(user)
+    // console.log(user)
     const location = useLocation();
 
     useEffect(() => {
@@ -55,7 +55,7 @@ const NavBar = () => {
 
                 {/* { location.pathname == '/login' || location.pathname == '/register' ? "" : "" } */}
 
-                <div className={ location.pathname == '/login' || location.pathname == '/register' ? "hidden" : "dropdown dropdown-end" }>
+                <div className={ location.pathname == '/login' || location.pathname == '/register' ? "hidden" : "dropdown dropdown-end z-50" }>
                     <label tabIndex={1} className="btn btn-ghost btn-circle">
                         <div className="indicator">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
@@ -63,7 +63,7 @@ const NavBar = () => {
                         </div>
 
                     </label>
-                    <div tabIndex={1} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow rounded-md">
+                    <div tabIndex={1} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow rounded-md z-50">
                         <div className="card-body rounded-sm">
                             {item.length === 0 ? <p className='text-black text-center font-bold'>Please add some recipes</p> : <span className="font-bold text-lg text-black">{item.length} Items</span>}
                             <div className=''>
@@ -91,7 +91,7 @@ const NavBar = () => {
                                 }
                             </div>
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
                             <li><p>{user.displayName}</p></li>
                             <li>
                                 <a className="justify-between">
@@ -100,7 +100,7 @@ const NavBar = () => {
                                 </a>
                             </li>
                             <li><a>Settings</a></li>
-                            <li><a onClick={handleSignOut}>Logout</a></li>
+                            <li><a onClick={handleSignOut} className='z-50' >Logout</a></li>
                         </ul>
                     </div>
                 </div>
