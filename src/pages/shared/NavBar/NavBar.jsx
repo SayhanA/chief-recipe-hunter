@@ -33,14 +33,14 @@ const NavBar = () => {
     }
 
     return (
-        <div className={`w-11/12 lg:px-5 mx-auto navbar py-0 bg-transparent absolute left-[50%] translate-x-[-50%] z-20 flex gap-5`}>
+        <div className={`md:w-11/12 lg:px-5 mx-auto navbar py-0 bg-transparent absolute left-[50%] translate-x-[-50%] z-20 flex md:gap-5`}>
             {/* Menu bar design */}
             <div className='z-40 main lg:hidden'>
                 <input type="checkbox" className='menu-btn' id="menu-btn" />
                 <label onClick={() => setOpen(!open)} htmlFor="menu-btn" className='menu-icon'> <span className='nav-icon bg-white'></span> </label>
             </div>
             <div className=" z-20 lg:navbar-center lg:mr-auto relative -left-9 lg:left-0 mr-auto">
-                <h3 className={`text-4xl font-bold ${location.pathname == '/blog' ? "" : "text-white"}`}>F<span className='text-gray-500'>oo</span><span className='text-yellow-300'>&</span><span>r</span>t</h3>
+                <h3 className={`text-3xl md:text-4xl font-bold ${location.pathname == '/blog' ? "" : "text-white"}`}>F<span className='text-gray-500'>oo</span><span className='text-yellow-300'>&</span><span>r</span>t</h3>
             </div>
 
             <div className={`lg:backdrop-blur-0 backdrop-blur-lg w-full lg:text-left text-[#757575]  lg:navbar-start  lg:pl-5 gap-5 font-semibold  flex flex-col lg:w-full  lg:static lg:flex-row absolute lg:top-16 p-5 transition-all ${open ? "top-20" : "-top-72"}  ${location.pathname == '/blog' ? "" : "text-white"}`}>
