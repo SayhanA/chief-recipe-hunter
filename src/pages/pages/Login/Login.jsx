@@ -13,7 +13,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const { singIn, user } = useContext(AuthContext);
-    console.log(singIn)
+    // console.log(singIn)
     // const location = useLocation();
     // console.log(location)
     // const from = location.state?.from?.pathname || '/'
