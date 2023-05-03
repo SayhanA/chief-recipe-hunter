@@ -7,14 +7,14 @@ const Banner = () => {
     const [num, setNum] = useState(1)
 
     return (
-        <div>
+        <div className=''>
             <div className={`home-banner${num} flex flex-wrap`} >
-                <div className='w-full md:w-[50%] text-gray-200 p-5 md:pt-20 md:pl-20'>
+                <div className='w-full  md:w-[50%] text-gray-200 p-5 md:pt-20 md:pl-20'>
                     <div className='pt-20 md:pt-10'>
-                        <h3 className='text-white text-2xl md:text-5xl font-bold font-serif'>Art Of Cooking</h3>
-                        <p className='text-white border border-t-0 border-l-0 border-r-0 w-fit'>Make day with us.</p>
+                        <h3 className='text-white text-2xl md:text-5xl font-bold font-serif md:mt-20'>Art Of Cooking</h3>
+                        <p className='text-white border border-t-0 border-l-0 border-r-0 w-fit lg:text-xl lg:pt-5'>Make day with us.</p>
                     </div>
-                    <p className='mt-3 md:mt-9 md:text-[17px]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem exercitationem alias quasi libero cupiditate adipisci minima possimus voluptatem explicabo atque repellat ducimus ratione, error illo, recusandae consequatur perspiciatis, ipsa molestias!</p>
+                    <p className='mt-3 md:mt-9 md:text-[17px] lg:text-lg'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem exercitationem alias quasi libero cupiditate adipisci minima possimus voluptatem explicabo atque repellat ducimus ratione, error illo, recusandae consequatur perspiciatis, ipsa molestias!</p>
                     <Link className='btn btn-warning normal-case md:px-10 rounded-sm md:text-lg font-bold mt-3 md:mt-10'>Visit us <FaLongArrowAltRight className='text-xl ml-3' /> </Link>
                 </div>
                 <div className='w-full md:w-[50%] relative '>

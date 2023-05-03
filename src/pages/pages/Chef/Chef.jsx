@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { Suspense, useContext, useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import ReactDOM from 'react-dom';
-
-import ReactStarsRating from 'react-awesome-stars-rating';
 import Index from '../../component/CardCarsal/CardCarosal';
-import RecipesCard from '../../component/RecipesCard/RecipesCard';
+// import RecipesCard from '../../component/RecipesCard/RecipesCard';
+// lazy loading
+// import React, { Suspense } from 'react';
+
+const RecipesCard = React.lazy(() => import('../../component/RecipesCard/RecipesCard'))
 
 const Chef = () => {
     const [show, setShow] = useState(false);
@@ -14,7 +15,7 @@ const Chef = () => {
     // console.log(chef)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/chef/${chef}`)
+        fetch(`https://b7a10-chef-recipe-hunter-server-side-sayhan-a-sayhana.vercel.app/chef/${chef}`)
             .then(res => res.json())
             .then(data => {
                 if (data) {
@@ -50,22 +51,24 @@ const Chef = () => {
 
             <Index loader={loader} />
 
-            <h3 className='text-center text-4xl font-mono my-10'>My Recipes</h3>
+            <Suspense fallback={<div>Loading...</div>}>
 
-            {
-                show ? <div className='mx-[10%] grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
-                    {
-                        loader.map(recipes => <RecipesCard recipes={recipes} key={recipes.idMeal}></RecipesCard>)
-                    }
-                </div> :
-                    <div className=' mx-[10%] grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                <h3 className='text-center text-4xl font-mono my-10'>My Recipes</h3>
+
+                {
+                    show ? <div className='mx-[10%] grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
                         {
-                            loader.slice(0, 12).map(recipes => <RecipesCard recipes={recipes} key={recipes.idMeal}></RecipesCard>)
+                            loader.map(recipes => <RecipesCard recipes={recipes} key={recipes.idMeal}></RecipesCard>)
                         }
-                    </div>
-            }
-            <button onClick={() => setShow(!show)} className='btn btn-warning rounded-sm mx-auto block px-10 my-10'>{show ? "Show Less" : "Show More"}</button>
-
+                    </div> :
+                        <div className=' mx-[10%] grid md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                            {
+                                loader.slice(0, 12).map(recipes => <RecipesCard recipes={recipes} key={recipes.idMeal}></RecipesCard>)
+                            }
+                        </div>
+                }
+                <button onClick={() => setShow(!show)} className='btn btn-warning rounded-sm mx-auto block px-10 my-10'>{show ? "Show Less" : "Show More"}</button>
+            </Suspense>
         </div>
     );
 };

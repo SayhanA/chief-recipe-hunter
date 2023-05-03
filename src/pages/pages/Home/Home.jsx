@@ -11,6 +11,7 @@ const Home = () => {
 
     return (
         <div>
+        
             <Banner />
             <div className='md:mx-[10%] md:mt-20'>
                 <h3 className='text-4xl font-extrabold text-center font-mono'>Our {more ? "All" : "Famous"} Chefs</h3>
@@ -22,7 +23,7 @@ const Home = () => {
                             }
                         </div>
                         :
-                        <div className='grid lg:grid-cols-3 md:grid-cols-2 gap-5 mt-5'>
+                        <div className='md:grid lg:grid-cols-3 md:grid-cols-2 gap-5 mt-5'>
                             {
                                 chefs.slice(0,6).map(chef => <Chefs chef={chef} key={chef._id} />)
                             }
