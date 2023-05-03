@@ -21,6 +21,7 @@ const AuthProvider = ({ children }) => {
 
     // Firebase user authorization
     const signUp = (email, password) => {
+        setLoading(false);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
@@ -37,20 +38,17 @@ const AuthProvider = ({ children }) => {
     // Profile updated!
 
     const updateUser = (name, photo) => {
-        console.log("clicked", name)
-        console.log("clicked photo", photo)
-        setUserName(name);
-        setUerPhoto(photo)
+        updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photo,
+        }).then((result) => {
+            
+        }).catch((error) => {
+    
+        });
     }
 
-    updateProfile(auth.currentUser, {
-        displayName: userName,
-        // photoURL: 'https://unsplash.com/photos/rDEOVtE7vOs'
-    }).then((result) => {
-        
-    }).catch((error) => {
-
-    });
+   
 
 
     // Google SignIn

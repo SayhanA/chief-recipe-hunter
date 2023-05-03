@@ -30,12 +30,13 @@ const Register = () => {
             alert("You password and confirm password are not same");
             return;
         }
-        updateUser(name, photo)
+        
         
         // signUp user
         signUp(email, password)
         .then(result => {
             const user = result.user;
+            updateUser(name, photo)
             
             console.log(user)
             if(user){
