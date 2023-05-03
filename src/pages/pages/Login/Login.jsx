@@ -12,7 +12,7 @@ const Login = () => {
     const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
 
-    const { singIn, user } = useContext(AuthContext);
+    const { singIn, user, handleGoogleSignIn, } = useContext(AuthContext);
     // console.log(singIn)
     // const location = useLocation();
     // console.log(location)
@@ -73,18 +73,18 @@ const Login = () => {
 
     }
 
-    const handleGoogleSignIn = () => {
-        // SignInWitGoogle()
-        // .then(result => {
-        //     const credential = GoogleAuthProvider.credentialFromResult(result);
-        //     const token = credential.accessToken;
-        //     const user = result.user;
-        //     console.log(user)
-        //     navigate(from)
-        // })
-        // .catch(error => {
-        //     console.log(error)
-        // })
+    const handleGoogleLogin = () => {
+        handleGoogleSignIn()
+        .then(result => {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            console.log(user)
+            // navigate(from)
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     return (
@@ -134,11 +134,11 @@ const Login = () => {
                     <div className=' border-2 border-gray-300 w-[40%] h-0'></div>
                 </div>
                 <div className='mx-5'>
-                    <div className='relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full'>
-                        <img className='w-[37px] absolute left-2' src="https://cdn.iconscout.com/icon/free/png-256/free-facebook-2038471-1718509.png" alt="" />
-                        <p className='text-center font-semibold'>Continue with Facebook</p>
+                    <div className='relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer'>
+                        <img className='w-[37px] absolute left-2 rounded-full' src="/public/images/GitHub.png" alt="" />
+                        <p className='text-center font-semibold'>Continue with GitHub</p>
                     </div>
-                    <div onClick={handleGoogleSignIn} className='mt-3 relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full'>
+                    <div onClick={handleGoogleLogin} className='mt-3 relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer'>
                         <img className='w-[37px] absolute left-2' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png" alt="" />
                         <p className='text-center font-semibold'>Continue with Google</p>
                     </div>
