@@ -3,6 +3,7 @@ import './Login.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaExclamationTriangle, FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../../provider/AuthProvider';
+import { GithubAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
@@ -12,7 +13,7 @@ const Login = () => {
     const [passwordError, setPasswordError] = useState("");
     const navigate = useNavigate();
 
-    const { singIn, user, handleGoogleSignIn, } = useContext(AuthContext);
+    const { singIn, user, handleGoogleSignIn, handleGitHubSignIn } = useContext(AuthContext);
     // console.log(singIn)
     // const location = useLocation();
     // console.log(location)
@@ -86,6 +87,19 @@ const Login = () => {
             console.log(error)
         })
     }
+    const handleGithubLogin = () => {
+        handleGitHubSignIn()
+        .then(result => {
+            const credential = GithubAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            console.log(user)
+            // navigate(from)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
 
     return (
         <div style={{ background: "url('https://wallpapercave.com/wp/wp9764009.jpg')" }} className='w-full pt-20'>
@@ -134,11 +148,11 @@ const Login = () => {
                     <div className=' border-2 border-gray-300 w-[40%] h-0'></div>
                 </div>
                 <div className='mx-5'>
-                    <div className='relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer'>
+                    <div onClick={handleGithubLogin} className='relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer transition-all hover:bg-[#ffffff30] hover:scale-105'>
                         <img className='w-[37px] absolute left-2 rounded-full' src="/public/images/GitHub.png" alt="" />
                         <p className='text-center font-semibold'>Continue with GitHub</p>
                     </div>
-                    <div onClick={handleGoogleLogin} className='mt-3 relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer'>
+                    <div onClick={handleGoogleLogin} className='mt-3 relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer transition-all hover:bg-[#ffffff30] hover:scale-105'>
                         <img className='w-[37px] absolute left-2' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png" alt="" />
                         <p className='text-center font-semibold'>Continue with Google</p>
                     </div>

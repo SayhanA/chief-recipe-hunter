@@ -14,7 +14,7 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-    const { signUp } = useContext(AuthContext);
+    const { signUp, handleGoogleSignIn, handleGitHubSignIn } = useContext(AuthContext);
 
     const handleSubmit = event => {
         setError('')
@@ -48,17 +48,32 @@ const Register = () => {
         })
     }
 
-    const handleGoogleSignIn = () => {
-        // SignInWitGoogle()
-        // .then(result => {
-        //     const credential = GoogleAuthProvider.credentialFromResult(result);
-        //     const token = credential.accessToken;
-        //     const user = result.user;
-        //     console.log(user)
-        // })
-        // .catch(error => {
-        //     console.log(error)
-        // })
+    const handleGoogleLogin = () => {
+        handleGoogleSignIn()
+        .then(result => {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            console.log(user)
+            // navigate(from)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }
+
+    const handleGithubLogin = () => {
+        handleGitHubSignIn()
+        .then(result => {
+            const credential = GithubAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            console.log(user)
+            // navigate(from)
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
 
     const handlePassword = e => {
@@ -179,11 +194,11 @@ const Register = () => {
                     <div className=' border-2 border-gray-300 w-[40%] h-0'></div>
                 </div>
                 <div className='mx-5'>
-                    <div className='relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full'>
-                        <img className='w-[37px] absolute left-2' src="https://cdn.iconscout.com/icon/free/png-256/free-facebook-2038471-1718509.png" alt="" />
-                        <p className='text-center font-semibold'>Continue with Facebook</p>
+                    <div onClick={handleGithubLogin} className='relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer transition-all hover:bg-[#ffffff30] hover:scale-105'>
+                        <img className='w-[37px] absolute left-2 rounded-full border-green-400 border-[3px]' src="/public/images/GitHub.png" alt="" />
+                        <p className='text-center font-semibold'>Continue with GitHub</p>
                     </div>
-                    <div onClick={handleGoogleSignIn} className='mt-3 relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full'>
+                    <div onClick={handleGoogleLogin} className='mt-3 relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer transition-all hover:bg-[#ffffff30] hover:scale-105'>
                         <img className='w-[37px] absolute left-2' src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png" alt="" />
                         <p className='text-center font-semibold'>Continue with Google</p>
                     </div>
