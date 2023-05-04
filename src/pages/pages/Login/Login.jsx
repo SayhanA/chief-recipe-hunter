@@ -102,7 +102,7 @@ const Login = () => {
 
     return (
         <div style={{ background: "url('https://wallpapercave.com/wp/wp9764009.jpg')" }} className='w-full pt-20'>
-            <form onSubmit={handleSubmit} style={{ backdropFilter: "blur(20px)" }} className='border bg-[#ffffff10] rounded-xl border-gray-300 p-10 mx-auto mt-5 w-[540px] h-[450px] text-white'>
+            <form onSubmit={handleSubmit} style={{ backdropFilter: "blur(20px)" }} className='border bg-[#ffffff10] rounded-xl border-gray-300 p-10 mx-auto mt-5 lg:w-[540px] h-[450px] text-white'>
                 <p className='font-bold text-2xl leading-7'>Login</p>
 
                 <div className="relative z-0 w-full mb-6 mt-10 group text-lg">
@@ -122,8 +122,8 @@ const Login = () => {
                     {passwordError && <div className='flex items-center gap-2 text-red-500'> <FaExclamationTriangle /><span>{passwordError}</span> </div>}
                 </div>
 
-                <div className='mt-5 flex justify-between'>
-                    <div className=" relative nameContainer flex gap-3 items-center font-semibold">
+                <div className='mt-5 md:flex justify-between'>
+                    <div className=" relative nameContainer lg:flex gap-3 items-center font-semibold">
                         <input className=" border-[3px]" id="username" type="checkbox" placeholder='userName' required />
                         Accept all <Link className='font-light underline text-gray-400'>Terms and Conditions</Link>
                     </div>
@@ -140,7 +140,7 @@ const Login = () => {
                 {error && <p id='errorField' className='text-red-500 text-center'>{error}</p>}
             </form>
 
-            <div className='w-[540px] mx-auto p-4 text-white'>
+            <div className='lg:w-[540px] mx-auto p-4 text-white'>
                 <div className='p-5 w-full flex gap-5 justify-center items-center'>
                     <div className=' border-2 border-gray-300 w-[40%] h-0'></div>
                     <span className=' font-bold'>OR</span>
@@ -148,7 +148,7 @@ const Login = () => {
                 </div>
                 <div className='mx-5'>
                     <div onClick={handleGithubLogin} className='relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer transition-all hover:bg-[#ffffff30] hover:scale-105'>
-                        <img className='w-[37px] absolute left-2 rounded-full' src="/public/images/GitHub.png" alt="" />
+                        <img className='w-[37px] absolute left-2 rounded-full' src="/images/GitHub.png" alt="" />
                         <p className='text-center font-semibold'>Continue with GitHub</p>
                     </div>
                     <div onClick={handleGoogleLogin} className='mt-3 relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer transition-all hover:bg-[#ffffff30] hover:scale-105'>

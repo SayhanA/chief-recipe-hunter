@@ -14,7 +14,7 @@ Chef page: On the chef page there is a banner section with chef image, some reci
 ## 🔗 Links
 * ### [Web site Link]: https://b7a10-chef-recipe-hunter-466b2.web.app
 * ### [Server site Link]: https://b7a10-chef-recipe-hunter-server-side-sayhan-a-sayhana.vercel.app/
-* ### [Server site Link]: https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-server-side-SayhanA
+* ### [Server site GitHub Link]: https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-server-side-SayhanA
 
 
 

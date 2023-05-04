@@ -43,7 +43,7 @@ const Chef = () => {
                         <img className='hidden lg:block absolute bottom-20 right-0 w-[200px]' src="/styleimg/nuts.png" alt="" />
                         <img className='absolute w-[200px] lg:w-[450px] lg:-left-[400px] -top-52 lg:top-[30%]' src="/styleimg/welcome.png" alt="" />
                         <p className='border-b-2 ml-5 lg:pb-5 border-yellow-300 absolute lg:-left-[300px] -top-32 lg:top-[60%] text-white font-semi-bold text-2xl lg:text-4xl font-mono'>{chef}</p>
-                        <p className=' absolute bottom-[240px] lg:-left-[300px] lg:bottom-[20%] text-white lg:text-lg px-3 lg:w-[500px] font-mono'>Hi, This is {chef}.I am working for {chefData.experience}years on this profession and crated {chefData.recipes}<sup>+</sup> recipes and i have speciality in ({chefData.dish}) dishes...</p>
+                        <p className=' absolute bottom-[240px] lg:-left-[300px] lg:bottom-[16%] text-white lg:text-lg px-3 lg:w-[500px] font-mono'>Hi, This is {chef}.I am working for {chefData.experience}years on this profession and crated {chefData.recipes}<sup>+</sup> recipes and i have speciality in ({chefData.dish}) dishes...</p>
                         {/* <p className='absolute bottom-0 -rotate-90 '><ReactStarsRating value={chefData.ratings} /></p> */}
                     </div>
                 </div>

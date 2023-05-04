@@ -6,6 +6,7 @@ import Review from '../../component/Review/Review';
 import Accordion from '../../component/Accordion/Accordion';
 import { lazy } from 'react';
 import Loading from '../../component/Loading/Loading';
+import UserReview from '../../component/UserRevies/UserReview';
 
 
 const Banner = lazy(() => delayForDemo(import('../../component/Banner/Banner')));
@@ -19,11 +20,7 @@ const Home = () => {
 
     return (
         <div onLoad={() => setShowPreview(true)} >
-            {/* <textarea value={markdown} onLoad={e => setMarkdown(e.target.value)} /> */}
-            {/* <label>
-                <input type="checkbox" checked={showPreview} onChange={e => setShowPreview(e.target.checked)} />
-                Show preview
-            </label> */}
+
             {showPreview && (
                 <Suspense fallback={<Loading />}>
                     <Banner markdown={markdown} />
@@ -57,6 +54,9 @@ const Home = () => {
             {/* Clients Review */}
             <Review />
 
+            {/* User Reviews */}
+            <UserReview />
+                
         </div>
     );
 };

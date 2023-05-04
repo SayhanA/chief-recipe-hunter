@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FaExclamationTriangle, FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Form, Link, useFormAction } from 'react-router-dom';
+import { Form, Link, useFormAction, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 
 
@@ -13,8 +13,10 @@ const Register = () => {
 
     const [confirmPassword, setConfirmPassword] = useState("");
     const [confirmPasswordError, setConfirmPasswordError] = useState("");
-
+    
     const { signUp, handleGoogleSignIn, handleGitHubSignIn, updateUser } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
     const handleSubmit = event => {
         setError('')
@@ -40,10 +42,10 @@ const Register = () => {
             
             console.log(user)
             if(user){
-                alert("you are successfully login")
                 form.reset();
                 setPassword('')
-                setConfirmPassword('')
+                setConfirmPassword('');
+                navigate('/')
             }
         })
         .catch(error => {
@@ -60,6 +62,7 @@ const Register = () => {
             const user = result.user;
             console.log(user)
             // navigate(from)
+            navigate('/')
         })
         .catch(error => {
             console.log(error)
@@ -137,7 +140,7 @@ const Register = () => {
 
     return (
         <div className='w-full pt-20 text-white' style={{background: "url('https://wallpapercave.com/wp/wp9764009.jpg')"}}>
-            <form onSubmit={handleSubmit} style={{backdropFilter: "blur(20px"}} className='border rounded-xl bg-[#ffffff10] border-gray-300 p-10 mx-auto  w-[540px]'>
+            <form onSubmit={handleSubmit} style={{backdropFilter: "blur(20px"}} className='border rounded-xl bg-[#ffffff10] border-gray-300 p-10 mx-auto  lg:w-[540px]'>
                 <p className='font-bold text-2xl leading-7 '>Register</p>
                 {/* <div className="mt-9 relative nameContainer">
                     <input className="nameField border-2 border-gray-300 border-t-0 border-l-0 border-r-0 w-full placeholder-black font-semibold" name='firstName' id="firstName" type="text" placeholder='First Name' />
@@ -191,7 +194,7 @@ const Register = () => {
                 {error && <p className='text-red-500 flex items-center gap-2 justify-center'><FaExclamationTriangle />{error}</p>}
             </form>
 
-            <div className='w-[540px] mx-auto p-4'>
+            <div className='lg:w-[540px] mx-auto p-4'>
                 <div className='p-5 w-full flex gap-5 justify-center items-center'>
                     <div className=' border-2 border-gray-300 w-[40%] h-0'></div>
                     <span className=' font-bold'>OR</span>
@@ -199,7 +202,7 @@ const Register = () => {
                 </div>
                 <div className='mx-5'>
                     <div onClick={handleGithubLogin} className='relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer transition-all hover:bg-[#ffffff30] hover:scale-105'>
-                        <img className='w-[37px] absolute left-2 rounded-full border-green-400 border-[3px]' src="/public/images/GitHub.png" alt="" />
+                        <img className='w-[37px] absolute left-2 rounded-full border-green-400 border-[3px]' src="/images/GitHub.png" alt="" />
                         <p className='text-center font-semibold'>Continue with GitHub</p>
                     </div>
                     <div onClick={handleGoogleLogin} className='mt-3 relative border border-gray-300 h-[51px] flex justify-center items-center rounded-full cursor-pointer transition-all hover:bg-[#ffffff30] hover:scale-105'>

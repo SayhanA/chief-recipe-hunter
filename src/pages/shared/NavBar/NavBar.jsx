@@ -91,7 +91,7 @@ const NavBar = () => {
                             <div className="w-10 rounded-full">
                                 {/* <img src={user?.photoURL} /> */}
                                 {
-                                    user.photoURL ? <img src={user.photoURL} /> : <div className="text-4xl flex justify-center items-center text-gray-500"><FaRegUserCircle /></div>
+                                    user.photoURL ? <img src={user.photoURL}  title={user && user.displayName} /> : <div className="text-4xl flex justify-center items-center text-gray-500"><FaRegUserCircle /></div>
                                 }
                             </div>
                         </label>
