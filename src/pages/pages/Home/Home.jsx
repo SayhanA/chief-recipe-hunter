@@ -1,18 +1,36 @@
-import React, { useState } from 'react';
-import Banner from '../../component/Banner/Banner';
+import React, { Suspense, useState } from 'react';
+// import Banner from '../../component/Banner/Banner';
 import { useLoaderData } from 'react-router-dom';
 import Chefs from '../../component/Chefs/Chefs';
 import Review from '../../component/Review/Review';
 import Accordion from '../../component/Accordion/Accordion';
+import { lazy } from 'react';
+import Loading from '../../component/Loading/Loading';
+
+
+const Banner = lazy(() => delayForDemo(import('../../component/Banner/Banner')));
 
 const Home = () => {
+    const [showPreview, setShowPreview] = useState(false);
+    const [markdown, setMarkdown] = useState('Hello, **world**!');
+
     const [more, setMore] = useState(false);
     const chefs = useLoaderData();
 
     return (
-        <div>
-        
-            <Banner />
+        <div onLoad={() => setShowPreview(true)}>
+            {/* <textarea value={markdown} onLoad={e => setMarkdown(e.target.value)} /> */}
+            {/* <label>
+                <input type="checkbox" checked={showPreview} onChange={e => setShowPreview(e.target.checked)} />
+                Show preview
+            </label> */}
+            {showPreview && (
+                <Suspense fallback={<Loading />}>
+                    <Banner markdown={markdown} />
+                </Suspense>
+            )}
+
+            {/* <Banner /> */}
             <div className='md:mx-[10%] md:mt-20'>
                 <h3 className='text-4xl font-extrabold text-center font-mono'>Our {more ? "All" : "Famous"} Chefs</h3>
                 {
@@ -25,7 +43,7 @@ const Home = () => {
                         :
                         <div className='md:grid lg:grid-cols-3 md:grid-cols-2 gap-5 mt-5'>
                             {
-                                chefs.slice(0,6).map(chef => <Chefs chef={chef} key={chef._id} />)
+                                chefs.slice(0, 6).map(chef => <Chefs chef={chef} key={chef._id} />)
                             }
                         </div>
                 }
@@ -42,5 +60,12 @@ const Home = () => {
         </div>
     );
 };
+
+// Add a fixed delay so you can see the loading state
+function delayForDemo(promise) {
+    return new Promise(resolve => {
+      setTimeout(resolve, 2000);
+    }).then(() => promise);
+  }
 
 export default Home;
