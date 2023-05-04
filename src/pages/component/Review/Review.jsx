@@ -10,7 +10,7 @@ const Review = () => {
         <div className='review-container h-[600px]'>
 
             <div className="h-[470px] max-w-[700px] mx-auto">
-                <h3 className='text-2xl md:text-4xl font-bold text-center pt-10 text-gray-300'>Our Clients & Reviews</h3>
+                <h3 className='text-2xl md:text-4xl font-bold text-center pt-10 text-gray-300'>Our Recipes & Reviews</h3>
                 <Carousel>
                     <div className='max-w-[500px] mx-auto'>
                         <img className='w-[100px] rounded-full mx-auto ' src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dXNlcnxlbnwwfHwwfHw%3D&w=1000&q=80" alt="" />

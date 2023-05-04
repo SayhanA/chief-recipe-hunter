@@ -10,7 +10,7 @@ const Accordion = () => {
 
     return (
         <div className={`h-[700px]  lg:mx-[10%] text-white mb-20 container${field}`}>
-            <h3 className='pt-10 pb-3 text-2xl md:text-4xl font-bold font-mono text-center border-red-500 border-b-4 w-fit mx-auto'>Our Events & Services</h3>
+            <h3 className='pt-10 pb-3 text-2xl md:text-4xl font-bold font-mono text-center border-red-500 border-b-4 w-fit mx-auto'>Our Events & party</h3>
             <div className='md:event md:w-11/12 mx-auto'>
                 <div className='md:w-[50%] mt-10'>
                     <div onClick={() => setField(1)} className={`md:leading-6 text-lg border rounded-md p-3 flex justify-between `}>Margie Event {field === 1 ? <FaAngleUp className='text-2xl' /> : <FaAngleDown className='text-2xl' />} </div>

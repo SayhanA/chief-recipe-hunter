@@ -18,7 +18,7 @@ const Home = () => {
     const chefs = useLoaderData();
 
     return (
-        <div onLoad={() => setShowPreview(true)}>
+        <div onLoad={() => setShowPreview(true)} >
             {/* <textarea value={markdown} onLoad={e => setMarkdown(e.target.value)} /> */}
             {/* <label>
                 <input type="checkbox" checked={showPreview} onChange={e => setShowPreview(e.target.checked)} />
