@@ -21,20 +21,20 @@ const router = createBrowserRouter([
                 loader: () => fetch('https://b7a10-chef-recipe-hunter-server-side-sayhan-a-sayhana.vercel.app/chefs')
             },
             {
-                path: "/blog",
+                path: "blog",
                 element: <Blog />
             },
             {
-                path: "/chefs/:chef",
+                path: "chefs/:chef",
                 element: <PrivateRouter><Chef /></PrivateRouter>,
                 loader: ({params}) => fetch(`https://b7a10-chef-recipe-hunter-server-side-sayhan-a-sayhana.vercel.app/recipes/${params.chef}`)
             },
             {
-                path: "/login",
+                path: "login",
                 element: <Login />
             },
             {
-                path: "/register",
+                path: "register",
                 element: <Register />,
             }
         ]

@@ -31,7 +31,7 @@ const Chef = () => {
             <div className='h-[600px] lg:h-[760px] bg-[url("/styleimg/cat-han-W_5Eakb1598-unsplash.jpg")] bg-no-repeat bg-cover' >
                 <div className='w-full h-full bg-gradient-to-r from-[#00000080] to-[#00000010] grid lg:grid-cols-2 relative'>
                     <div className='overflow-hidden'>
-                        <img className='absolute lg:w-[900px] bottom-0 lg:-left-72' src={`/public/chefImages/${chef}.png`} alt="" />
+                        <img className='absolute lg:w-[900px] bottom-0 lg:-left-72' src={`/chefImages/${chef}.png`} alt="" />
                     </div>
                     <div className='relative'>
                         <img className='hidden lg:block absolute left-0' src="/styleimg/landing-slide-1-img-10.png" alt="" />
