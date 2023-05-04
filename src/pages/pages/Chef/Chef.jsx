@@ -1,9 +1,6 @@
 import React, { Suspense, useContext, useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Index from '../../component/CardCarsal/CardCarosal';
-// import RecipesCard from '../../component/RecipesCard/RecipesCard';
-// lazy loading
-// import React, { Suspense } from 'react';
 
 const RecipesCard = React.lazy(() => import('../../component/RecipesCard/RecipesCard'))
 

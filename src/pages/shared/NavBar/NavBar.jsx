@@ -45,15 +45,16 @@ const NavBar = () => {
                 <h3 className={`text-2xl md:text-4xl font-bold ${location.pathname == '/blog' ? "" : "text-white"}`}>F<span className='text-gray-500'>oo</span><span className='text-yellow-300'>&</span><span>r</span>t</h3>
             </div>
 
-            <div className={`lg:backdrop-blur-0 backdrop-blur-lg w-full lg:text-left text-[#757575]  lg:navbar-start  lg:pl-5 gap-5 font-semibold  flex flex-col lg:w-full  lg:static lg:flex-row absolute lg:top-16 p-5 transition-all ${open ? "top-20" : "-top-72"}  ${location.pathname == '/blog' ? "" : "text-white"}`}>
+            <div className={`lg:backdrop-blur-0 backdrop-blur-lg w-full lg:text-left text-[#757575]  lg:navbar-start  lg:pl-5 gap-5 font-semibold  flex flex-col lg:w-full  lg:static lg:flex-row absolute lg:top-16 p-5 transition-all ${open ? "top-20" : "-top-72"}  ${location.pathname == '/blog' || location.pathname == '/favorite' ? "" : "text-white"}`}>
                 <li className='list-none '> <ActiveLink className='hover:text-yellow-300' to="/">Home</ActiveLink></li>
                 <li className='list-none '> <ActiveLink className='hover:text-yellow-300' to="/blog">Blog</ActiveLink></li>
+                <li className='list-none '> <ActiveLink className='hover:text-yellow-300' to="/favorite">Favorite</ActiveLink></li>
             </div>
 
             <button className="text-white ">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
             </button>
-            <div className={` ${location.pathname == '/blog' ? "" : "text-white"}`}>
+            <div className={` ${location.pathname == '/blog' || location.pathname == '/favorite' ? "" : "text-white"}`}>
 
                 {/* { location.pathname == '/login' || location.pathname == '/register' ? "" : "" } */}
 

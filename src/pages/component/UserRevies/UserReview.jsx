@@ -12,7 +12,7 @@ const UserReview = () => {
     const [myRating, setMyRating] = useState()
     const [rating, setRating] = useState(0)
     const { user, loading } = useContext(AuthContext);
-    console.log(user)
+    // console.log(user)
 
     const handleForm = (e) => {
         e.preventDefault();
@@ -32,7 +32,7 @@ const UserReview = () => {
     const handleFeedback = (e) => {
         const feedbacks = e.target.value;
         setFeedback(feedbacks)
-        console.log(feedback)
+        // console.log(feedback)
     }
 
         return (
