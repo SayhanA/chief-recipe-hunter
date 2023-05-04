@@ -42,7 +42,7 @@ const UserReview = () => {
                     !loading && user ? <div>
                         <div className='grid lg:grid-cols-2 max-w-[95%] mx-auto'>
                             <div className=' bg-yellow-50 rounded-3xl py-10'>
-                                <div className='w-[150px] rounded-full overflow-hidden border-[10px] border-blue-400 mx-auto'>
+                                <div className='w-[150px] rounded-full overflow-hidden border-[10px] border-yellow-300 mx-auto'>
                                     <img className='w-full h-full' src={user.photoURL} alt="" />
                                 </div>
 
