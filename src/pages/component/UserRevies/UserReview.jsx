@@ -41,7 +41,7 @@ const UserReview = () => {
                 {
                     !loading && user ? <div>
                         <div className='grid lg:grid-cols-2 max-w-[95%] mx-auto'>
-                            <div className=' bg-yellow-50 rounded-3xl py-10'>
+                            <div style={{boxShadow: "inset 2px 2px 20px #00000030"}} className=' bg-yellow-50 rounded-3xl py-10'>
                                 <div className='w-[150px] rounded-full overflow-hidden border-[10px] border-yellow-300 mx-auto'>
                                     <img className='w-full h-full' src={user.photoURL} alt="" />
                                 </div>
@@ -144,8 +144,8 @@ const UserReview = () => {
                         </div>
                     </div>
                         : <div>
-                        <div className='flex flex-wrap max-w-[95%] mx-auto'>
-                            <div className='w-[50%] bg-yellow-50 rounded-3xl py-10'>
+                        <div className='grid lg:grid-cols-2 max-w-[95%] mx-auto'>
+                            <div className=' bg-yellow-50 rounded-3xl py-10'>
                                 
                                     <FaUserAlt className='text-[100px] mx-auto text-gray-500 flex justify-center items-center' />
                                 
@@ -155,7 +155,7 @@ const UserReview = () => {
 
                                 <p className='font-bold mt-10 text-center text-lg max-w-[500px] word mx-auto'>Review: {feedback}</p>
                             </div>
-                            <div className='w-[50%]'>
+                            <div className=''>
                                 <form onSubmit={handleForm} className='max-w-[400px] mx-auto'>
                                     <div className="mb-5 block">
                                         <Label

@@ -76,11 +76,11 @@ const Login = () => {
     const handleGoogleLogin = () => {
         handleGoogleSignIn()
         .then(result => {
+            navigate(from)
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             const user = result.user;
             console.log(user)
-            navigate(from)
         })
         .catch(error => {
             console.log(error)

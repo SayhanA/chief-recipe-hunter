@@ -6,7 +6,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 const PrivateRouter = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
-    console.log(location)
+    // console.log(location)
 
     if (loading) {
         return <div className="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">

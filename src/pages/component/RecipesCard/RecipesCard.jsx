@@ -14,7 +14,7 @@ const RecipesCard = ({ recipes }) => {
     const { likedRecipes } = useContext(AuthContext);
     // console.log(recipes)
 
-    const { strMealThumb, area, strMeal, strInstructions, idMeal, ratings, strArea, } = recipes;
+    const { strMealThumb, area, strMeal, strInstructions, idMeal, ratings, strArea, strIngredient1, strIngredient2, strIngredient3, strIngredient4, strIngredient5, strIngredient6 } = recipes;
 
     const handleLike = (props) => {
         toast("Your item is bookmarked");
@@ -23,7 +23,7 @@ const RecipesCard = ({ recipes }) => {
         addToDb(props)
     }
     return (
-        <div className="card  bg-base-100 shadow-xl rounded-lg">
+        <div style={{background:"var(--card_bg)"}} className="card  bg-base-100 shadow-xl rounded-lg">
             <div className={`bg-red-100 h-[270px] rounded-lg relative`}>
                 <img className='w-full h-full rounded-t-lg' src={strMealThumb} alt="" />
 
@@ -31,6 +31,7 @@ const RecipesCard = ({ recipes }) => {
             <div className="card-body p-7">
                 <h2 className="card-title">{strMeal}</h2>
                 <p><span className='font-bold'>Process To Make:</span> {strInstructions.slice(0, 120)} ... <span className='underline text-blue-700'>[Read more]</span></p>
+                <p><span className='font-bold'>Ingredients:</span> {strIngredient1}, {strIngredient2}, {strIngredient3}, {strIngredient4}, {strIngredient5}, {strIngredient6}....etc. <span className='underline text-blue-700'></span></p>
 
                 <p className='font-bold'>Origin Location: {strArea} {area}</p>
                 

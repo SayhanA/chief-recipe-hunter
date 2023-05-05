@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --body_background: #ffffff;
+    --body_color: #000000;
+    --link_color: rgb(188, 187, 187);
+    
+}
+ 
+[data-theme="dark"] {
+    --body_background: #282c34;
+    --body_color: #ffffff;
+    --link_color: cyan;
+    --card_bg: #242935;
+}
+
+*{
+    transition: all 0.1s ease-in-out;
+}

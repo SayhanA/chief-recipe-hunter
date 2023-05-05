@@ -1,3 +1,4 @@
+import './Home.css'
 import React, { Suspense, useState } from 'react';
 // import Banner from '../../component/Banner/Banner';
 import { useLoaderData } from 'react-router-dom';
@@ -7,6 +8,8 @@ import Accordion from '../../component/Accordion/Accordion';
 import { lazy } from 'react';
 import Loading from '../../component/Loading/Loading';
 import UserReview from '../../component/UserRevies/UserReview';
+import DarkMode from '../../component/DarkMode/DarkMode';
+
 
 
 const Banner = lazy(() => delayForDemo(import('../../component/Banner/Banner')));
