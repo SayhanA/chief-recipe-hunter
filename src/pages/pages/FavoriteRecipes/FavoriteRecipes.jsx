@@ -55,9 +55,9 @@ const FavoriteRecipes = () => {
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
-                                            <div className={`mask w-80 h-52 border border-red-600 relative`}>
+                                            <div className={`mask w-80 h-52 border relative`}>
                                                 <img src={data.strMealThumb} alt="" />
-                                                <div className='overflow-hidden w-40 rounded-full absolute right-0 bottom-0'><img className='w-20' src={`/chefImages/${data.chef}.png`} alt="" /></div>
+                                                <div className='overflow-hidden w-32 rounded-full absolute -right-8 bottom-0'><img className=' rounded-full bg-yellow-300 ' src={`/chefImages/${data.chef}.png`} alt="" /></div>
                                             </div>
                                         </div>
                                         <div>
