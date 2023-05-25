@@ -25,7 +25,7 @@ const addToDb = id => {
 const removeMeal = id => {
     const getMeals = JSON.parse(localStorage.getItem('ordered_meals'))
     delete getMeals[id]
-    console.log(getMeals)
+    // console.log(getMeals)
     localStorage.setItem('ordered_meals', JSON.stringify(getMeals));
 }
 

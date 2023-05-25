@@ -9,6 +9,8 @@ import Login from '../pages/pages/LogIn/Login';
 import Register from '../pages/pages/Register/Register';
 import PrivateRouter from './PrivateRouter';
 import FavoriteRecipes from '../pages/pages/FavoriteRecipes/FavoriteRecipes';
+import Profile from '../pages/pages/Profile/Profile';
+import AboutUs from '../pages/pages/AboutUs/AboutUs';
 
 const router = createBrowserRouter([
     {
@@ -42,6 +44,15 @@ const router = createBrowserRouter([
                 path: 'favorite',
                 element: <FavoriteRecipes />,
                 loader: () => fetch('https://b7a10-chef-recipe-hunter-server-side-sayhan-a-sayhana.vercel.app/recipes')
+            },
+            {
+                path: 'profile',
+                element: <Profile />,
+            },
+            {
+                path: "aboutUs",
+                element: <AboutUs />,
+                loader: () => fetch('https://b7a10-chef-recipe-hunter-server-side-sayhan-a-sayhana.vercel.app/chefs')
             }
         ]
     }

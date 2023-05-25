@@ -41,8 +41,9 @@ const AuthProvider = ({ children }) => {
         updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: photo,
-        }).then((result) => {
             
+        }).then((result) => {
+            setUserName(name)
         }).catch((error) => {
     
         });
@@ -83,7 +84,7 @@ const AuthProvider = ({ children }) => {
         handleGoogleSignIn,
         handleGitHubSignIn,
         updateUser,
-
+        userName
     }
 
     return (

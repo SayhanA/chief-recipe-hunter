@@ -12,7 +12,7 @@ const Chefs = ({ chef }) => {
     const { _id, name, image, known_for, experience, likes, birth_year, recipes, nationality, ratings, dish } = chef;
 
     return (
-        <div style={{background:"var(--card_bg)"}} className="card max-w-[400px] mx-auto rounded-lg bg-base-100 shadow-xl mb-4 transition-all px-2 hover:scale-105">
+        <div style={{background:"var(--card_bg)"}} className="card max-w-[400px] mx-auto rounded-lg bg-base-100 shadow-xl mb-4 transition-all px-2">
             <img src={image} className=' md:h-[250px] rounded-t-lg' alt="Shoes" />
             <div className="md:card-body p-3 flex flex-col gap-3">
                 <div>

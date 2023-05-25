@@ -37,7 +37,7 @@ const RecommendedRecipes = () => {
 
     return (
         <div className='md:mx-[10%] mb-[5%]'>
-            <h3 className='text-center text-2xl lg:text-4xl font-bold font-mono my-10 '>Recommend Us a Recipe</h3>
+            <h3 className='text-center text-2xl lg:text-4xl font-bold font-mono my-10 '>Share Your Recipe</h3>
             <div>
                 <div>
                     <div className='w-[100px] rounded-full overflow-hidden border-[5px] border-yellow-300 mx-auto'>
@@ -57,10 +57,11 @@ const RecommendedRecipes = () => {
                                     <div className="mb-5 block">
                                         <Label
                                             htmlFor="username"
-
+                                            
                                         />
                                     </div>
                                     <TextInput
+                                    className=""
                                         id="username3"
                                         placeholder="Recipe name"
                                         required={true}

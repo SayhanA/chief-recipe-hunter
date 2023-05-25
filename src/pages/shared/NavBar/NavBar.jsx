@@ -11,7 +11,7 @@ const NavBar = () => {
     const [open, setOpen] = useState(false);
     const [item, setItem] = useState([]);
     const [isTrue, setIsTrue] = useState(false);
-    const { resId, user, handleSignOut } = useContext(AuthContext);
+    const { resId, user, handleSignOut, userName } = useContext(AuthContext);
     // console.log(user)
     const location = useLocation();
 
@@ -21,7 +21,7 @@ const NavBar = () => {
             const keys = Object.keys(item);
             setItem(keys)
         }
-    }, [resId, isTrue])
+    }, [resId, isTrue, userName])
 
     const handleRemove = (id) => {
         removeMeal(id);
@@ -43,13 +43,14 @@ const NavBar = () => {
                 <label onClick={() => setOpen(!open)} htmlFor="menu-btn" className='menu-icon'> <span className='nav-icon bg-white'></span> </label>
             </div>
             <div className=" z-20 lg:navbar-center lg:mr-auto relative -left-9 lg:left-0 mr-auto">
-                <h3 className={`text-2xl md:text-4xl font-bold ${location.pathname == '/blog' ? "" : "text-white"}`}>F<span className='text-gray-500'>oo</span><span className='text-yellow-300'>&</span><span>r</span>t</h3>
+                <h3 style={{textShadow: "3px 3px 3px #00000090"}} className={` text-2xl md:text-4xl font-bold ${location.pathname == '/blog' ? "" : "text-white"}`}>F<span className='text-gray-500'>oo</span><span className='text-yellow-300'>&</span><span>r</span>t</h3>
             </div>
 
             <div className={`lg:backdrop-blur-0 backdrop-blur-lg w-full lg:text-left text-[#757575]  lg:navbar-start  lg:pl-5 gap-5 font-semibold  flex flex-col lg:w-full  lg:static lg:flex-row absolute lg:top-16 p-5 transition-all ${open ? "top-20" : "-top-72"}  ${location.pathname == '/blog' || location.pathname == '/favorite' ? "" : "text-white"}`}>
                 <li className='list-none '> <ActiveLink className='hover:text-yellow-300' to="/">Home</ActiveLink></li>
                 <li className='list-none '> <ActiveLink className='hover:text-yellow-300' to="/blog">Blog</ActiveLink></li>
                 <li className='list-none '> <ActiveLink className='hover:text-yellow-300' to="/favorite">Favorite</ActiveLink></li>
+                <li className='list-none '> <ActiveLink className='hover:text-yellow-300' to="/aboutUs">About Us</ActiveLink></li>
             </div>
 
             <button className="text-white ">
@@ -65,7 +66,7 @@ const NavBar = () => {
                 {
                     user && <div className={location.pathname == '/login' || location.pathname == '/register' ? "hidden" : "dropdown dropdown-end z-50"}>
                         <label tabIndex={1} className="btn btn-ghost btn-circle">
-                            <div  className={` ${location.pathname == '/blog' || location.pathname == '/favorite' ? "indicator" : "text-white indicator"}`}>
+                            <div  className={` ${location.pathname == '/blog' || location.pathname == '/favorite' || location.pathname == '/aboutUs' ? "indicator" : "text-white indicator"}`}>
                                 <svg  xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
                                 <span className="badge badge-sm badge-error indicator-item font-bold">{item.length}</span>
                             </div>
@@ -103,22 +104,19 @@ const NavBar = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
                             <li><p>{user.displayName}</p></li>
                             <li>
-                                <a className="justify-between">
+                                <Link to="/profile" className="justify-between" title='Click Here to see your profile details'>
                                     Profile
                                     <span className="badge">New</span>
-                                </a>
+                                </Link>
                             </li>
-                            <li><a>Settings</a></li>
-                            <li><a onClick={handleSignOut} className='z-50' >Logout</a></li>
+                            {/* <li><a>Settings</a></li> */}
+                            <li title='Click here to logOut'><a onClick={handleSignOut} className='z-50' >Logout</a></li>
                         </ul>
                     </div>
                 </div>
                     : <Link to='/login' className='btn btn-warning lg:px-5 rounded-md normal-case lg:text-[17px] m-2'>LogIn</Link>
             }
-            {/* <DarkMode /> */}
-            {/* <div className='sm:static absolute top-[60px] right-3' title='Active Dark Mode'>
-                <DarkMode />
-            </div> */}
+           
         </div>
     );
 };
